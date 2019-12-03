@@ -1,5 +1,4 @@
 <?php
-//代码回滚
 function insert_categories(){
   global $connection;
   if (isset($_POST['submit'])) {
