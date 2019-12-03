@@ -35,6 +35,24 @@
 
             ?>
 
+
+
+            <form action="" method="post">
+              <div class="form-group">
+                <label for="cat-title">
+                  加入分类
+                </label>
+                <input type="text" class="form-control" name="cat_title">
+              </div>
+              <div class="form-group">
+                <input class="btn btn-primary" type="submit" name="submit" value="加入分类">
+              </div>
+            </form>
+            <form action="" method="post">
+              <div class="form-group">
+                <label for="cat-title">
+                  更新分类
+                </label>
             <?php
             if (isset($_GET['edit'])) {
               $cat_id = $_GET['edit'];
@@ -45,29 +63,28 @@
                 $cat_title = $row['cat_title'];
                 ?>
                 <input value="<?php isset($cat_title) ?print $cat_title : 'null';?>" type="text" class="form-control" name="cat_title">
-              <?php  } ?>
+              <?php  }} ?>
+        
+<?php
+// UPDATE QUERY
+if(isset($_POST['update_category'])){
+  $the_cat_title=$_POST['cat_title'];
+  $the_cat_id=$_GET['edit'];
+$query="UPDATE categories SET cat_title='{$the_cat_title}' WHERE cat_id ='{$the_cat_id}'";
+$update_query=mysqli_query($connection,$query);
+if(!$update_query){
+  die("更新失败".mysqli_error($connection));
+}
+header("Location: categories.php");
+}
 
-            <?php } ?>
-            <form action="" method="post">
-              <div class="form-group">
-                <label for="cat-title">
-                  Add Category
-                </label>
-                <input type="text" class="form-control" name="cat_title">
+
+
+
+?>
               </div>
-              <div class="form-group">
-                <input class="btn btn-primary" type="submit" name="submit" value="Add Category">
-              </div>
-            </form>
-            <form action="" method="post">
-              <div class="form-group">
-                <label for="cat-title">
-                  Edit Category
-                </label>
-                <input type="text" class="form-control" name="cat_title">
-              </div>
-              <div class="form-group">
-                <input class="btn btn-primary" type="submit" name="submit" value="更新">
+              <div class="form-group" method="post">
+                <input class="btn btn-primary" type="submit" name="update_category" value="更新">
               </div>
             </form>
           </div>
