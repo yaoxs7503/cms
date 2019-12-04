@@ -2,7 +2,6 @@
 
     <div id="wrapper">
 
-    <?php if ($connection) echo "连接成功" ?>
         <!-- Navigation -->
         <?php include "includes/admin_navigation.php" ?>
 

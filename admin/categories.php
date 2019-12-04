@@ -22,7 +22,8 @@
 
             ?>
 
-
+<?php
+deleteCategories()?>
 
             <form action="" method="post">
               <div class="form-group">
@@ -84,31 +85,9 @@ header("Location: categories.php");
                 </tr>
               </thread>
               <tbody>
-                <?php
-                $query = "SELECT * FROM categories";
-                $select_categories_sidebar = mysqli_query($connection, $query);
-                while ($row = mysqli_fetch_assoc($select_categories_sidebar)) {
-                  $cat_id = $row['cat_id'];
-                  $cat_title = $row['cat_title'];
-                  echo "<tr>";
-                  echo "<td>{$cat_id}</td>";
-                  echo "<td>{$cat_title}</td>";
-                  echo "<td><a href=
- 'categories.php?delete={$cat_id}'>删除</a></td>";
-                  echo "<td><a href=
- 'categories.php?edit={$cat_id}'>更新</a></td>";
-                  echo "</tr>";
-                }
-
-                ?>
-                <?php
-                if (isset($_GET['delete'])) {
-                  $the_cat_id = $_GET['delete'];
-                  $query = "DELETE FROM categories WHERE cat_id={$the_cat_id} ";
-                  $delete_query = mysqli_query($connection, $query);
-                  header("Location: categories.php");
-                }
-                ?>
+            <?php
+            findAllCategories();
+            ?>
               </tbody>
             </table>
           </div>
