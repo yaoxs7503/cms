@@ -1,4 +1,10 @@
 <?php
+function confirmQuery($result){
+  global $connection;
+  if(!$result){
+    die("查询失败".mysqli_error($connection));
+  }
+};
 function insert_categories()
 {
   global $connection;
@@ -48,6 +54,4 @@ if (isset($_GET['delete'])) {
                     header("Location: categories.php");
                   }
 }
-?>
-
 ?>

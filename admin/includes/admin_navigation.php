@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin</a>
+                <a class="navbar-brand" href="index.html">管理员</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -139,10 +139,10 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="fa fa-fw fa-arrows-v"></i> 上传资料<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="posts_dropdown" class="collapse">
                             <li>
-                                <a href="#">上传资料item</a>
+                                <a href="./posts.php">查看所有博客</a>
                             </li>
                             <li>
-                                <a href="#">上传资料item</a>
+                                <a href="./posts.php?source=add_post">加入所有资料</a>
                             </li>
                         </ul>
                     </li>

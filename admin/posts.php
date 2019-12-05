@@ -32,53 +32,29 @@
           Welcome to admin
           <small>Author</small>
         </h1>
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-              <th>Post ID</th>
-              <th>Author</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Status</th>
-              <th>Image</th>
-              <th>Tags</th>
-              <th>Comments</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
+       <?php
+      if(isset($_GET['source'])){
+        $source=$_GET['source'];
+      }else{
+        $source='';
+      } 
 
-          <?php
-$query="SELECT * FROM posts";
-$select_posts=mysqli_query($connection,$query);
-while($row=mysqli_fetch_assoc($select_posts)){
-  $post_id=$row['post_id'];
-  $post_author=$row['post_author'];
-  $post_category_id=$row['post_category_id'];
-  $post_status=$row['post_status'];
-  $post_image=$row['post_image'];
-  $post_tags=$row['post_tags'];
-  $post_comment_count=$row['post_comment_count'];
-  $post_date=$row['post_date'];
-  echo $post_date;
-  echo "<tr></tr>";
-}
+      switch($source){
+        case 'add_post': 
+        include "includes/add_post.php";
+        break;
+        case '100':
+        echo "NICE 100";
 
-?>
-            <tr>
-              <td>10</td>
-              <td>Edwin Diaz</td>
-              <td>Bootstrap framework</td>
-              <td>Bootstrap</td>
-              <td>Status</td>
-              <td>Image</td>
-              <td>Tags</td>
-              <td>Comments</td>
-              <td>Date</td>
-            </tr>
-          </tbody>
-        </table>
+        break;
+        case 'edit_post':
+        include "includes/edit_post.php";
+        break;
 
+        default:
+        include "includes/view_all_post.php";
+      }
+       ?>
       </div> <!-- /.row -->
 
     </div>
