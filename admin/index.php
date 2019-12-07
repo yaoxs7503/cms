@@ -12,10 +12,13 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
+
+
                         <h1 class="page-header">
-                            Welcome to admin
+                        首页
                             <small>Subheading</small>
                         </h1>
+
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
@@ -35,6 +38,6 @@
         <!-- /#page-wrapper -->
 
     </div>
-    <!-- /#wrapper -->
-
+ 
+   <!-- /#wrapper -->
 <?php include "includes/admin_footer.php" ?>

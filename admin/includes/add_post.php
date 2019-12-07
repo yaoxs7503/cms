@@ -2,7 +2,7 @@
 if(isset($_POST['create_post'])){
 $post_title=$_POST['title'];
 $post_author=$_POST['author'];
-$post_category_id=$_POST['post_category_id'];
+$post_category_id=$_POST['post_category'];
 $post_status=$_POST['post_status'];
 $post_image=$_FILES['image']['name'];
 $post_image_temp=$_FILES['image']['tmp_name'];
@@ -28,10 +28,20 @@ confirmQuery($create_post_query);
 <input type="text" name="title" id="" class="form-control">
 </div>
 
-<div class="form-group">
-<label for="post_category">上传ID</label>
-<input type="text" name="post_category_id" id="" class="form-control">
-</div>
+
+<select name="post_category" id="">
+<?php
+$query="SELECT * FROM categories"; 
+$select_categories=mysqli_query($connection,$query);
+confirmQuery($select_categories);
+while($row=mysqli_fetch_assoc($select_categories)){
+  $cat_id=$row['cat_id'];
+  $cat_title=$row['cat_title'];
+  echo "<option value='{$cat_id}'>{$cat_title}</option>";
+}
+?>
+</select>
+
 <div class="form-group">
 <label for="title">上传作者</label>
 <input type="text" class="form-control" name="author" id="">
@@ -42,8 +52,6 @@ confirmQuery($create_post_query);
 <label for="post_status">上传状态</label>
 <input type="text" name="post_status" id="" class="form-control">
 </div>
-
-
 
 <div class="form-group">
 <label for="post_image">上传图片</label>
@@ -58,7 +66,6 @@ confirmQuery($create_post_query);
 <div class="form-group">
 <label for="post_content">上传内容</label>
 <textarea class="form-control" name="post_content" id="" cols="30" rows="10"></textarea>
-
 </div>
 
 <div class="form-group">
