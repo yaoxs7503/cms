@@ -19,6 +19,10 @@ include "includes/header.php";
             $select_posts = mysqli_query($connection, $query);
             while ($row = mysqli_fetch_assoc($select_posts)) {
                 $post_title = $row['post_title'];
+                $post_author=$row['post_author'];
+                $post_date=$row['post_date'];
+                $post_image=$row['post_image'];
+                $post_content=$row['post_content'];
                 ?>
                 <!-- First Blog Post -->
                 <h2>
@@ -27,13 +31,18 @@ include "includes/header.php";
                     </a>
                 </h2>
                 <p class="lead">
-                    by <a href="index.php">Start Bootstrap</a>
+                    由 <a href="index.php">
+                        <?php echo $post_author ?>
+                    </a>
+                    填写
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
+                <p><span class="glyphicon glyphicon-time"></span>
+                <?php echo $post_date ?></p>
+            </p> 
                 <hr>
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
                 <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
+                <p><?php echo $post_content ?></p>
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
             <?php } ?>
