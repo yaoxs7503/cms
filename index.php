@@ -2,29 +2,29 @@
 <?php
 include "includes/header.php";
 ?>
+
 <body>
 
     <!-- Navigation -->
-<?php 
-include "includes/navigation.php";
-?>
-
-    <!-- Page Content -->
+    <?php
+    include "includes/navigation.php";
+    ?>
     <div class="container">
-
+        <!-- Blog Entries Column -->
         <div class="row">
-
-            <!-- Blog Entries Column -->
+            <!-- Page Content -->
             <div class="col-md-8">
-
-                <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
-                </h1>
-
+            <?php
+            $query = "SELECT * FROM posts";
+            $select_posts = mysqli_query($connection, $query);
+            while ($row = mysqli_fetch_assoc($select_posts)) {
+                $post_title = $row['post_title'];
+                ?>
                 <!-- First Blog Post -->
                 <h2>
-                    <a href="#">Blog Post Title</a>
+                    <a href="#">
+                        <?php echo $post_title ?>
+                    </a>
                 </h2>
                 <p class="lead">
                     by <a href="index.php">Start Bootstrap</a>
@@ -36,23 +36,20 @@ include "includes/navigation.php";
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
-
-
-                                <hr>
-
+            <?php } ?>
 
             </div>
-
+            <!-- End col-md-8-->
+            <hr />
             <!-- Blog Sidebar Widgets Column -->
-           <?php 
-          include "includes/sidebar.php"; 
-           ?>
-
+        <?php
+            include "includes/sidebar.php";
+            ?>
+            <!--Blog sidebar End-->
         </div>
         <!-- /.row -->
-
-        <hr>
-
-<?php
-include "includes/footer.php";
-?>
+        <?php
+        include "includes/footer.php";
+        ?>
+    </div>
+    <!-- /.container -->
