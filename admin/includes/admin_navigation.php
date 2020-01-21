@@ -104,12 +104,9 @@
                         <li>
                             <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
                         </li>
+                        
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="../admin/includes/logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -146,11 +143,20 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="active">
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+                     <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#users_dropdown"><i class="fa fa-fw fa-arrows-v"></i> 加入用户<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="users_dropdown" class="collapse">
+                            <li>
+                                <a href="users.php">查看所有用户</a>
+                            </li>
+                            <li>
+                                <a href="users.php?source=add_user">加入所有资料</a>
+                            </li>
+                        </ul>
                     </li>
+                    
                     <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                        <a href="profile.php"><i class="fa fa-fw fa-dashboard"></i> 浏览人数</a>
                     </li>
                 </ul>
             </div>

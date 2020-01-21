@@ -15,25 +15,23 @@ include "includes/header.php";
             <!-- Page Content -->
             <div class="col-md-8">
             <?php
-            $query = "SELECT * FROM posts";
+
+            if (isset($_GET['category'])) {
+                $post_category_id=$_GET['category'];
+            }
+                $query = "SELECT * FROM posts WHERE post_category_id = $post_category_id ";
+                        
             $select_posts = mysqli_query($connection, $query);
             while ($row = mysqli_fetch_assoc($select_posts)) {
-                $post_category_id=$row['post_category_id'];
                 $post_title = $row['post_title'];
                 $post_author=$row['post_author'];
                 $post_date=$row['post_date'];
                 $post_image=$row['post_image'];
-                $post_content=mb_substr($row['post_content'], 0, 30);
-                $post_status=$row['post_status'];
-                if ($post_status!=='上传中') {
-                    echo "<h1>没有上提交成功</h1>";
-                } else {
-                    ?>
-
-                
+                $post_content=$row['post_content'];
+                ?>
                 <!-- First Blog Post -->
                 <h2>
-                    <a href="post.php?p_id=<?= $post_category_id ?>">
+                    <a href="#">
                         <?php echo $post_title ?>
                     </a>
                 </h2>
@@ -52,9 +50,7 @@ include "includes/header.php";
                 <p><?php echo $post_content ?></p>
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
-            <?php
-                }
-            } ?>
+            <?php } ?>
 
             </div>
             <!-- End col-md-8-->

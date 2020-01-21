@@ -1,0 +1,15 @@
+.rocket{
+  position: absolute;
+  bottom: 0;
+  transition: all 5s cubic-bezier(1,0.08,0,1.19);
+}
+
+.rocket-1{
+  left: 30px;
+}
+.rocket-2{
+  left:330px;
+}
+.rocket-3{
+  left:630px;
+}
